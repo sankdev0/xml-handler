@@ -7,7 +7,7 @@ import jakarta.xml.bind.*;
 
 import java.util.List;
 
-public class App 
+public class ModifyMarshalDemo
 {
     public static void main( String[] args ) {
         try {
@@ -23,7 +23,7 @@ public class App
             // ONLY accepts PacketEPD xml-documents
             @SuppressWarnings("unchecked")
             JAXBElement<PacketEPD> packetEPDJAXBElement = (JAXBElement<PacketEPD>) unmarshaller.unmarshal(
-                    App.class.getResourceAsStream( "/xml-files/B150S53M.xml" ));
+                    ModifyMarshalDemo.class.getResourceAsStream( "/xml-files/B150S53M.xml" ));
 
             PacketEPD packetEPD = packetEPDJAXBElement.getValue();
 
