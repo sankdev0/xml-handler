@@ -5,10 +5,6 @@ import com.sankdev.edbind.*;
 
 import jakarta.xml.bind.*;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.List;
 
 public class App 
@@ -23,35 +19,38 @@ public class App
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 
             // unmarshal a po instance document into a tree of Java content
-            // objects composed of classes from the primer.po package.
-            JAXBElement packetEPDJAXBElement =
-                    (JAXBElement<PacketEPD>)unmarshaller.unmarshal(
-                            App.class.getResourceAsStream( "/xml-files/B150S53M.xml" ) );
-            PacketEPD packetEPD = (PacketEPD)packetEPDJAXBElement.getValue();
+            // objects composed of classes from the com.sankdev.edbind package.
+            // ONLY accepts PacketEPD xml-documents
+            @SuppressWarnings("unchecked")
+            JAXBElement<PacketEPD> packetEPDJAXBElement = (JAXBElement<PacketEPD>) unmarshaller.unmarshal(
+                    App.class.getResourceAsStream( "/xml-files/B150S53M.xml" ));
+
+            PacketEPD packetEPD = packetEPDJAXBElement.getValue();
 
             // get List of all EDs
             List<ED> eds = packetEPD.getED101OrED103OrED104();
 
             // get the desired ED
             for (ED tempEd : eds) {
-                //System.out.println(tempEd.getEDNo());
-                if (tempEd.getEDNo().equals(BigInteger.valueOf(1344))) {
-                    System.out.println("===> Found the ED");
+                if (tempEd instanceof ED101) {
+                    ED101 ed101 = (ED101) tempEd;
+                    AccDocRefID accDocRefID = ed101.getAccDoc();
+                    if (accDocRefID.getAccDocNo().equals("1244")) {
+                        System.out.println("ED101 with No 1244 found");
+                        String payerInn = ed101.getPayer().getINN();
+                        String purpose = ed101.getPurpose();
+                        if (!payerInn.isEmpty() && !purpose.isEmpty() && !purpose.contains("///;ИП")) {
+                            System.out.println("Incorrect purpose detected. Amending");
+                            ed101.setPurpose(purpose + "///;ИП21;" + payerInn);
+                        }
+                    }
                 }
             }
 
-            // change the billto address
-         //   USAddress address = po.getBillTo();
-         //   address.setName( "Gary Cole" );
-         //   address.setStreet( "242 Sovetskaya str" );
-         //   address.setCity( "Orenburg" );
-         //   address.setState( "ORB" );
-         //   address.setZip( new BigDecimal( "11111" ) );
-
-            // create a Marshaller and marshal to a file
-         //   Marshaller marshaller = jaxbContext.createMarshaller();
-         //   marshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE );
-         //   marshaller.marshal( poe, System.out );
+            // create a Marshaller and marshal to a file or another stream
+            Marshaller marshaller = jaxbContext.createMarshaller();
+            marshaller.setProperty( Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE );
+            marshaller.marshal( packetEPDJAXBElement, System.out );
 
         } catch( JAXBException je ) {
             je.printStackTrace();
