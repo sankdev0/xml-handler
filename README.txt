@@ -16,4 +16,6 @@ where -d is the target dir for generated class files,
 -p is the target package for generated class files,
 the argument is the dir containing the XML schemas.
 
-4. Develop the client program that unmarshal, modify and marshal data to XML files.
+4. See the ModifyMarshalDemo.java demo-program that shows how to unmarshal and marshal xml-files.
+
+5. Develop the client program that unmarshal, modify and marshal data to XML files.
