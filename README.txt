@@ -11,7 +11,7 @@ Maven Central. It contains command line tool xjc (XML to Java binding compiler).
 
 3. Generate Java classes from XML schema files (XSD). Example of a command
 (on Windows CMD):
-"C:\progs\jaxb-ri\bin>xjc.bat -xmlschema -d C:\repos\xml-handler\src\main\java -p com.sankdev.edbind C:\repos\xml-handler-files\xml-schema"
+"C:\progs\jaxb-ri\bin>xjc.bat -xmlschema -encoding utf-8 -d C:\repos\xml-handler\src\main\java -p com.sankdev.edbind C:\repos\xml-handler-files\xml-schema"
 where -d is the target dir for generated class files,
 -p is the target package for generated class files,
 the argument is the dir containing the XML schemas.

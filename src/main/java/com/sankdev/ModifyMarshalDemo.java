@@ -20,7 +20,7 @@ public class ModifyMarshalDemo
             exc.printStackTrace();
         }
 
-        String jaxbContextPackage = properties.getProperty("jaxb.context.package", "com.sankdev.edbind");
+        String jaxbContextPackage = properties.getProperty("jaxb.context.package", "com.sankdev.eFFbind");
 
         try {
             // create a JAXBContext capable of handling classes generated into
