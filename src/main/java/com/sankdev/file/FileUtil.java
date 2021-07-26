@@ -1,18 +1,22 @@
-package com.sankdev.file.utils;
+package com.sankdev.file;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileUtil {
 
     /**
      * Create a copy of the working directory containing the files to be processed
      * @param source the source directory containing the files to be processed
-     * @return the Path to a copy directory containing the files to be processed
+     * @return the Path to a copy directory containing the files to be processed.
+     * It is the original directory with "-out" suffix appended.
      * @throws IOException thrown when operation fails
      */
-    public static Path copyWorkingDirCopy(Path source) throws IOException {
+    public static Path copyWorkingDir(Path source) throws IOException {
 
         FileSystem fileSystem = FileSystems.getDefault();
 
@@ -20,7 +24,7 @@ public class FileUtil {
 
         Files.createDirectory(target);
 
-        FileVisitor<Path> theFileVisitor = new SimpleFileVisitor<>() {
+        FileVisitor<Path> fileVisitor = new SimpleFileVisitor<>() {
 
             @Override
             public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
@@ -41,8 +45,27 @@ public class FileUtil {
             }
         };
 
-        Files.walkFileTree(source, theFileVisitor);
+        Files.walkFileTree(source, fileVisitor);
 
         return target;
     }
+
+    public static List<File> listFilesInDir(Path source) throws IOException {
+
+        List<File> fileList = new ArrayList<>();
+
+        FileVisitor<Path> fileVisitor = new SimpleFileVisitor<> () {
+
+            @Override
+            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                fileList.add(file.toFile());
+                return FileVisitResult.CONTINUE;
+            }
+        };
+
+        Files.walkFileTree(source,fileVisitor);
+
+        return fileList;
+    }
 }
+

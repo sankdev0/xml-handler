@@ -1,10 +1,12 @@
 package com.sankdev;
 
-import com.sankdev.file.utils.FileUtil;
+import com.sankdev.file.FileUtil;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Properties;
 import java.util.logging.Logger;
 
@@ -23,8 +25,16 @@ public class App {
 
         mainLogger.info("Source directory retrieved - " + source);
 
-        Path workingDirCopy = FileUtil.copyWorkingDirCopy(source);
+        Path workingDirCopy = FileUtil.copyWorkingDir(source);
 
-        mainLogger.info(workingDirCopy.toString());
+        mainLogger.info("All files copied for processing to working directory - " +
+                workingDirCopy);
+
+        List<File> fileList = FileUtil.listFilesInDir(workingDirCopy);
+
+        for (File tempFile : fileList) {
+            mainLogger.info("File to be processed - " + tempFile.toString());
+        }
+
     }
 }
