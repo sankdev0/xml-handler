@@ -20,7 +20,7 @@ public class ModifyMarshalDemo
             exc.printStackTrace();
         }
 
-        String jaxbContextPackage = properties.getProperty("jaxb.context.package", "com.sankdev.eFFbind");
+        String jaxbContextPackage = properties.getProperty("jaxb.context.package", "com.sankdev.edbind");
 
         try {
             // create a JAXBContext capable of handling classes generated into
@@ -35,7 +35,7 @@ public class ModifyMarshalDemo
             // ONLY accepts PacketEPD xml-documents
             @SuppressWarnings("unchecked")
             JAXBElement<PacketEPD> packetEPDJAXBElement = (JAXBElement<PacketEPD>) unmarshaller.unmarshal(
-                    ModifyMarshalDemo.class.getResourceAsStream( "/xml-files/B150S53M.xml" ));
+                    ModifyMarshalDemo.class.getResourceAsStream("/demo-xml-files/B150S53M.xml"));
 
             PacketEPD packetEPD = packetEPDJAXBElement.getValue();
 
