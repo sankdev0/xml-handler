@@ -5,15 +5,27 @@ import com.sankdev.edbind.*;
 
 import jakarta.xml.bind.*;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
 public class ModifyMarshalDemo
 {
     public static void main( String[] args ) {
+        Properties properties = new Properties();
+
+        try {
+            properties.load(ModifyMarshalDemo.class.getResourceAsStream("/config.properties"));
+        } catch (IOException exc) {
+            exc.printStackTrace();
+        }
+
+        String jaxbContextPackage = properties.getProperty("jaxb.context.package", "com.sankdev.edbind");
+
         try {
             // create a JAXBContext capable of handling classes generated into
             // the com.sankdev.edbind package
-            JAXBContext jaxbContext = JAXBContext.newInstance( "com.sankdev.edbind" );
+            JAXBContext jaxbContext = JAXBContext.newInstance( jaxbContextPackage );
 
             // create an Unmarshaller
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
