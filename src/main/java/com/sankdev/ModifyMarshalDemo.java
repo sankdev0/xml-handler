@@ -42,10 +42,12 @@ public class ModifyMarshalDemo
             // get List of all EDs
             List<ED> eds = packetEPD.getED101OrED103OrED104();
 
-            // get the desired ED
-            for (ED tempEd : eds) {
-                if (tempEd instanceof ED101) {
-                    ED101 ed101 = (ED101) tempEd;
+            // get the desired ED, modify it and remove the ones you don't need
+            boolean removeFlag;
+            for (int i = 0; i < eds.size(); i++) {
+                removeFlag = true;
+                if (eds.get(i) instanceof ED101) {
+                    ED101 ed101 = (ED101) eds.get(i);
                     AccDocRefID accDocRefID = ed101.getAccDoc();
                     if (accDocRefID.getAccDocNo().equals("1244")) {
                         System.out.println("ED101 with No 1244 found");
@@ -54,8 +56,13 @@ public class ModifyMarshalDemo
                         if (!payerInn.isEmpty() && !purpose.isEmpty() && !purpose.contains("///;ИП")) {
                             System.out.println("Incorrect purpose detected. Amending");
                             ed101.setPurpose(purpose + "///;ИП21;" + payerInn);
+                            removeFlag = false;
                         }
                     }
+                }
+                if (removeFlag) {
+                    eds.remove(i);
+                    i--;
                 }
             }
 
