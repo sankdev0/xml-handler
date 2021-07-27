@@ -1,6 +1,7 @@
 package com.sankdev;
 
 import com.sankdev.file.FileUtil;
+import com.sankdev.file.FileUtilImpl;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,12 +26,14 @@ public class App {
 
         mainLogger.info("Source directory retrieved - " + source);
 
-        Path workingDirCopy = FileUtil.copyWorkingDir(source);
+        FileUtil fileUtil = new FileUtilImpl();
 
-        mainLogger.info("All files copied for processing to working directory - " +
+        Path workingDirCopy = fileUtil.copyWorkingDir(source);
+
+        mainLogger.info( "All files copied for processing to working directory - " +
                 workingDirCopy);
 
-        List<File> fileList = FileUtil.listFilesInDir(workingDirCopy);
+        List<File> fileList = fileUtil.listFilesInDir(workingDirCopy);
 
         for (File tempFile : fileList) {
             mainLogger.info("File to be processed - " + tempFile.toString());
