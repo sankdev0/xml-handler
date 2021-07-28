@@ -19,3 +19,9 @@ the argument is the dir containing the XML schemas.
 4. See the ModifyMarshalDemo.java demo-program that shows how to unmarshal and marshal xml-files.
 
 5. Develop the client program that unmarshal, modify and marshal data to XML files.
+
+Key principles and rules used in this project:
+1. Execution sections are kept small for readability and maintainability.
+Functionality is split into modules.
+2. Programming to Interfaces in order to make Dependency Injection and
+Inversion of Control possible.

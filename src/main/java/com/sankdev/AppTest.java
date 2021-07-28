@@ -1,14 +1,7 @@
 package com.sankdev;
 
-import com.sankdev.edbind.PacketEPD;
 import com.sankdev.file.FileUtil;
 import com.sankdev.file.FileUtilImpl;
-import com.sankdev.gisgmp.GisGmpError;
-import com.sankdev.gisgmp.PacketEPDHandler;
-import com.sankdev.gisgmp.PacketEPDHandlerImpl;
-import com.sankdev.xml.XmlUtil;
-import com.sankdev.xml.XmlUtilImpl;
-import jakarta.xml.bind.JAXBException;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,15 +11,15 @@ import java.util.List;
 import java.util.Properties;
 import java.util.logging.Logger;
 
-public class App {
+public class AppTest {
 
-    public static void main(String[] args) throws IOException, JAXBException {
+    public static void main(String[] args) throws IOException {
 
         Logger mainLogger = Logger.getLogger("mainLogger");
 
         // Load config properties
         Properties properties = new Properties();
-        properties.load(App.class.getResourceAsStream("/config.properties"));
+        properties.load(AppTest.class.getResourceAsStream("/config.properties"));
 
         // copy working directory for processing files
         Path source = Paths.get(properties.getProperty("jaxb.xml.files.path"));
@@ -42,18 +35,8 @@ public class App {
 
         List<File> fileList = fileUtil.listFilesInDir(workingDirCopy);
 
-        XmlUtil<PacketEPD> xmlHandler =
-                new XmlUtilImpl<>(PacketEPD.class,
-                        properties.getProperty("jaxb.context.package", "com.sankdev.edbind"));
-
-        PacketEPDHandler packetEPDHandler = new PacketEPDHandlerImpl();
-
         for (File tempFile : fileList) {
             mainLogger.info("File to be processed - " + tempFile.toString());
-            PacketEPD packetEPD = xmlHandler.getRootElementValue(tempFile);
-            PacketEPD updatedPacketEPD = packetEPDHandler.handleError(packetEPD, GisGmpError.ERROR_CODE_290);
-            //mainLogger.info("END: File processed - " + outFile.toString());
-
         }
 
     }

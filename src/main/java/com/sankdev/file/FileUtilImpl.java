@@ -9,11 +9,32 @@ import java.util.List;
 
 public class FileUtilImpl implements FileUtil {
 
+    private void deleteDirectory(Path source) throws IOException {
+
+        FileVisitor<Path> fileVisitor = new SimpleFileVisitor<> () {
+
+            @Override
+            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                Files.deleteIfExists(file);
+                return FileVisitResult.CONTINUE;
+            }
+
+            @Override
+            public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                Files.deleteIfExists(dir);
+                return FileVisitResult.CONTINUE;
+            }
+        };
+
+        Files.walkFileTree(source,fileVisitor);
+    }
+
     @Override
     public Path copyWorkingDir(Path source) throws IOException {
 
         Path target = source.getParent().resolve(source.getFileName() + "-out");
 
+        deleteDirectory(target);
         Files.createDirectory(target);
 
         FileVisitor<Path> fileVisitor = new SimpleFileVisitor<>() {
