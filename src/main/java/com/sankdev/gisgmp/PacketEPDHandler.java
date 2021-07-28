@@ -1,10 +1,7 @@
 package com.sankdev.gisgmp;
 
+import com.sankdev.edbind.ED;
 import com.sankdev.edbind.PacketEPD;
-import jakarta.xml.bind.JAXBException;
-
-import java.io.File;
-import java.io.IOException;
 
 /**
  * Utility interface for handling GisGmp errors. An implementation should
@@ -14,6 +11,6 @@ import java.io.IOException;
  */
 public interface PacketEPDHandler {
 
-    PacketEPD handleError (PacketEPD packetEPD, GisGmpError error);
+    void handleError (PacketEPD packetEPD, Class<? extends ED> type, GisGmpError error);
 
 }

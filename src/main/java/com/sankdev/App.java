@@ -1,5 +1,6 @@
 package com.sankdev;
 
+import com.sankdev.edbind.ED101;
 import com.sankdev.edbind.PacketEPD;
 import com.sankdev.file.FileUtil;
 import com.sankdev.file.FileUtilImpl;
@@ -51,8 +52,9 @@ public class App {
         for (File tempFile : fileList) {
             mainLogger.info("File to be processed - " + tempFile.toString());
             PacketEPD packetEPD = xmlHandler.getRootElementValue(tempFile);
-            PacketEPD updatedPacketEPD = packetEPDHandler.handleError(packetEPD, GisGmpError.ERROR_CODE_290);
-            //mainLogger.info("END: File processed - " + outFile.toString());
+            packetEPDHandler.handleError(packetEPD, ED101.class, GisGmpError.ERROR_CODE_290);
+            File updatedFile = xmlHandler.marshalToFile(packetEPD, tempFile);
+            mainLogger.info("Updated file - " + updatedFile.toString());
 
         }
 

@@ -7,10 +7,10 @@ import java.io.File;
 
 public class XmlUtilImpl<T> implements XmlUtil<T> {
 
-    private Class<T> typeParameterClass;
+    private final Class<T> typeParameterClass;
 
     // the package JAXB scans to find the classes bound to xml-schemas
-    private JAXBContext jaxbContext;
+    private final JAXBContext jaxbContext;
 
     /**
      * Constructor creates an instance of {@link XmlUtilImpl} with
@@ -34,15 +34,16 @@ public class XmlUtilImpl<T> implements XmlUtil<T> {
 
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 
+        @SuppressWarnings("unchecked")
         JAXBElement<T> rootElement = (JAXBElement<T>) unmarshaller.unmarshal(xmlFile);
         
-        Object obj = rootElement.getValue();
+        T obj = rootElement.getValue();
 
         if (!obj.getClass().getName().equals(typeParameterClass.getName())) {
             throw new IllegalArgumentException("The class used is not mapped to the xml root element");
         }
 
-        return (T) obj;
+        return obj;
     }
 
     @Override

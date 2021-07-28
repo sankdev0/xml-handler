@@ -36,16 +36,19 @@ public class GisGmpFilters {
     }
 
     /**
-     * Checks if ed101 must be sent to GIS GMP.
-     * @param ed101 the ED101 instance.
-     * @return {@code true} if the ED101 document must be sent to GIS GMP.
+     * Проверяет, что документ типа ed101 должен быть отравлен в ГИС ГМП.
+     *
+     * @param ed101 экземпляр ED101.
+     * @return {@code true} если документ ED101 должен быть отправлен
+     * в ГИС ГМП.
      */
     public boolean qualifyForGisGmp(ED101 ed101) {
 
-        String payeeBankCorrespAcc = ed101.getPayee().getBank().getCorrespAcc();
-        // когда нет номера коррсчета, чаще всего плтаеж типа
-        // "Подкрепление наличными деньгами операционной кассы дополнительного офиса не имеющего
-        // корреспондентского субсчета"
+        String payeeBankCorrespAcc =
+                ed101.getPayee().getBank().getCorrespAcc();
+        // когда нет номера корр. счета, чаще всего плтаеж типа
+        // "Подкрепление наличными деньгами операционной кассы
+        // дополнительного офиса не имеющего корреспондентского субсчета"
         if (payeeBankCorrespAcc == null) {
             return false;
         }
@@ -63,6 +66,41 @@ public class GisGmpFilters {
         }
 
         return false;
+    }
+
+    /**
+     * Проверяет, что в документе типа ed101 должен быть заполнен Идентификатор
+     * плательщика (ИП) в формате ///;ИП<код документа>;<номер документа>.
+     * Идентификатор плательщика должен формироваться автоматически и добавляется
+     * в конец Назначения платежа.
+     * Иначе может возникать ошибка {@link com.sankdev.gisgmp.GisGmpError}.
+     *
+     * @param ed101 экзмпляр ED101.
+     * @return {@code true} Идентификатор плательщика (ИП) должен быть заполнен.
+     */
+    public boolean qualifyForPayerIdentifier(ED101 ed101) {
+
+        // FIXME move the criteria to an external config file
+        // РП к ВС "Прием информации об уплате
+        // (информации из распоряжения плательщика)"
+        // https://smev3.gosuslugi.ru/portal/inquirytype_one.jsp?id=230604&zone=fed&page=1&dTest=false
+        // Если платеж бюджетный согласно фильтрам в {@link GisGmpFilters}
+        // и DrawerStatus (Статус плательщика, поле 101) = "03", "19", "20", "24"
+        // то обязательно ненулевые один из
+        // - PaymentID (УИН)
+        // - ИП (идентификатор плательщика)
+        // - DocNo (Номер Документа, поле 108)
+        // Иначе ошибка 290
+        String paymentId = ed101.getPaymentID();
+        if (ed101.getDepartmentalInfo() == null) {
+            return false;
+        }
+        String drawerStatus = ed101.getDepartmentalInfo().getDrawerStatus();
+        String departmentalInfoDocNo = ed101.getDepartmentalInfo().getDocNo();
+
+        return (drawerStatus.equals("03") || drawerStatus.equals("19")
+                || drawerStatus.equals("20") || drawerStatus.equals("24"))
+                && paymentId.equals("0") && departmentalInfoDocNo.equals("0");
     }
 
 }

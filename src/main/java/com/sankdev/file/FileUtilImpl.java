@@ -11,6 +11,10 @@ public class FileUtilImpl implements FileUtil {
 
     private void deleteDirectory(Path source) throws IOException {
 
+        if (Files.notExists(source)) {
+            return;
+        }
+
         FileVisitor<Path> fileVisitor = new SimpleFileVisitor<> () {
 
             @Override
@@ -71,7 +75,7 @@ public class FileUtilImpl implements FileUtil {
         FileVisitor<Path> fileVisitor = new SimpleFileVisitor<> () {
 
             @Override
-            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
                 fileList.add(file.toFile());
                 return FileVisitResult.CONTINUE;
             }
