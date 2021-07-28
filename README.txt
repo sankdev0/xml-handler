@@ -25,3 +25,10 @@ Key principles and rules used in this project:
 Functionality is split into modules.
 2. Programming to Interfaces in order to make Dependency Injection and
 Inversion of Control possible.
+
+Help needed on issues:
+1. Introduce test coverage.
+2. Move hardcoded properties to external config files.
+3. Introduce automated build (including xml-java mapped classes generation).
+4. Modularize the application.
+5. Improve the API for code reuse as a library.
