@@ -12,9 +12,15 @@ public interface FileUtil {
      * @param source the source directory containing the files to be processed
      * @return the Path to a copy directory containing the files to be processed.
      * It is the original directory with "-out" suffix appended.
-     * @throws IOException thrown when operation fails
+     * @throws IOException when operation fails
      */
     Path copyWorkingDir(Path source) throws IOException;
 
+    /**
+     * Return list of files in the specified directory (recursively)
+     * @param source the source directory path containing the files
+     * @return the list of files in the source directory
+     * @throws IOException when operation fails
+     */
     List<File> listFilesInDir(Path source) throws IOException;
 }

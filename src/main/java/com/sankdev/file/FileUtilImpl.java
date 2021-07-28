@@ -12,8 +12,6 @@ public class FileUtilImpl implements FileUtil {
     @Override
     public Path copyWorkingDir(Path source) throws IOException {
 
-        FileSystem fileSystem = FileSystems.getDefault();
-
         Path target = source.getParent().resolve(source.getFileName() + "-out");
 
         Files.createDirectory(target);
