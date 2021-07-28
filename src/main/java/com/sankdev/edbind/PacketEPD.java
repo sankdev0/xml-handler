@@ -11,12 +11,8 @@ package com.sankdev.edbind;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlElements;
-import jakarta.xml.bind.annotation.XmlType;
+
+import jakarta.xml.bind.annotation.*;
 
 
 /**
@@ -59,6 +55,7 @@ import jakarta.xml.bind.annotation.XmlType;
     "session",
     "ed101OrED103OrED104"
 })
+@XmlRootElement
 public class PacketEPD
     extends ESID
 {
