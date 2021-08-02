@@ -21,42 +21,47 @@ import java.util.logging.Logger;
 
 public class App {
 
-    public static void main(String[] args) throws IOException, JAXBException {
+  public static void main(String[] args) throws IOException, JAXBException {
 
-        Logger mainLogger = Logger.getLogger("mainLogger");
+    Logger mainLogger = Logger.getLogger("mainLogger");
 
-        // Load config properties
-        Properties properties = new Properties();
-        properties.load(App.class.getResourceAsStream("/config.properties"));
+    // Load config properties
+    Properties properties = new Properties();
+    properties.load(App.class.getResourceAsStream("/config.properties"));
 
-        // copy working directory for processing files
-        Path source = Paths.get(properties.getProperty("jaxb.xml.files.path"));
+    // copy working directory for processing files
+    Path source = Paths.get(properties.getProperty("jaxb.xml.files.path"));
+    String copyDirSuffix = properties.getProperty("jaxb.xml-files.copy.directory.suffix");
+    String copyFileSuffix = properties.getProperty("jaxb.xml-files.copy.file.suffix");
 
-        mainLogger.info("Source directory retrieved - " + source);
+    mainLogger.info("Source directory retrieved - " + source);
+    mainLogger.info("Copy Directory suffix retrieved - " + copyDirSuffix);
+    mainLogger.info("Copy File suffix retrieved - " + copyFileSuffix);
 
-        FileUtil fileUtil = new FileUtilImpl();
+    FileUtil fileUtil = new FileUtilImpl();
 
-        Path workingDirCopy = fileUtil.copyWorkingDir(source);
+    Path workingDirCopy = fileUtil.copyWorkingDir(source, copyDirSuffix, copyFileSuffix);
 
-        mainLogger.info( "All files copied for processing to working directory - " +
-                workingDirCopy);
+    mainLogger.info("All files copied for processing to working directory - " +
+      workingDirCopy);
 
-        List<File> fileList = fileUtil.listFilesInDir(workingDirCopy);
+    List<File> fileList = fileUtil.listFilesInDir(workingDirCopy);
 
-        XmlUtil<PacketEPD> xmlHandler =
-                new XmlUtilImpl<>(PacketEPD.class,
-                        properties.getProperty("jaxb.context.package", "com.sankdev.edbind"));
+    XmlUtil<PacketEPD> xmlHandler =
+      new XmlUtilImpl<>(PacketEPD.class,
+        properties.getProperty(
+          "jaxb.context.package", "com.sankdev.edbind"));
 
-        PacketEPDHandler packetEPDHandler = new PacketEPDHandlerImpl();
+    PacketEPDHandler packetEPDHandler = new PacketEPDHandlerImpl();
 
-        for (File tempFile : fileList) {
-            mainLogger.info("File to be processed - " + tempFile.toString());
-            PacketEPD packetEPD = xmlHandler.getRootElementValue(tempFile);
-            packetEPDHandler.handleError(packetEPD, ED101.class, GisGmpError.ERROR_CODE_290);
-            File updatedFile = xmlHandler.marshalToFile(packetEPD, tempFile);
-            mainLogger.info("Updated file - " + updatedFile.toString());
-
-        }
+    for (File tempFile : fileList) {
+      mainLogger.info("File to be processed - " + tempFile.toString());
+      PacketEPD packetEPD = xmlHandler.getRootElementValue(tempFile);
+      packetEPDHandler.handleError(packetEPD, ED101.class, GisGmpError.ERROR_CODE_290);
+      File updatedFile = xmlHandler.marshalToFile(packetEPD, tempFile);
+      mainLogger.info("Updated file - " + updatedFile.toString());
 
     }
+
+  }
 }
