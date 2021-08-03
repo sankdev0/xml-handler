@@ -55,7 +55,7 @@ import jakarta.xml.bind.annotation.*;
     "session",
     "ed101OrED103OrED104"
 })
-@XmlRootElement
+@XmlRootElement(name="PacketEPD")
 public class PacketEPD
     extends ESID
 {

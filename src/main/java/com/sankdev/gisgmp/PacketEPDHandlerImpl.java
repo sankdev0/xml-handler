@@ -13,6 +13,8 @@ public class PacketEPDHandlerImpl implements PacketEPDHandler {
 
   private final GisGmpFilters gisGmpFilters = new GisGmpFilters();
 
+  // TODO Нужна валидация для поля purpose, т.к. его максимальная длина 210 символов.
+  // При добавлении ИП это ограничение может нарушаться.
   private void handleError290ED101(PacketEPD packetEPD) {
 
     final String errorCode = String.valueOf(GisGmpError.ERROR_CODE_290);

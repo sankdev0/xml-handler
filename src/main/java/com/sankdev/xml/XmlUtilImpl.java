@@ -51,6 +51,8 @@ public class XmlUtilImpl<T> implements XmlUtil<T> {
 
     marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
+    // Note: If you want to avoid generating the xml declaration set Marshaller.JAXB_FRAGMENT ti
+    // true
     marshaller.marshal(rootElementValue, xmlFile);
 
     return xmlFile;

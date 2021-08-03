@@ -87,17 +87,19 @@ public class GisGmpFilters {
    */
   public boolean qualifyForPayerIdentifier(ED101 ed101) {
 
-    // FIXME move the criteria to an external config file
-    // РП к ВС "Прием информации об уплате
-    // (информации из распоряжения плательщика)"
-    // https://smev3.gosuslugi.ru/portal/inquirytype_one.jsp?id=230604&zone=fed&page=1&dTest=false
-    // Если платеж бюджетный согласно фильтрам в {@link GisGmpFilters}
-    // и DrawerStatus (Статус плательщика, поле 101) = "03", "19", "20", "24"
-    // то обязательно ненулевые один из
-    // - PaymentID (УИН)
-    // - ИП (идентификатор плательщика)
-    // - DocNo (Номер Документа, поле 108)
-    // Иначе ошибка 290
+    /*
+     FIXME move the criteria to an external config file
+     РП к ВС "Прием информации об уплате
+     (информации из распоряжения плательщика)"
+     https://smev3.gosuslugi.ru/portal/inquirytype_one.jsp?id=230604&zone=fed&page=1&dTest=false
+     Если платеж бюджетный согласно фильтрам в {@link GisGmpFilters}
+     и DrawerStatus (Статус плательщика, поле 101) = "03", "19", "20", "24"
+     то обязательно ненулевые один из
+     - PaymentID (УИН)
+     - ИП (идентификатор плательщика)
+     - DocNo (Номер Документа, поле 108)
+     Иначе ошибка 290
+    */
     String paymentId = ed101.getPaymentID();
     if (ed101.getDepartmentalInfo() == null) {
       return false;
