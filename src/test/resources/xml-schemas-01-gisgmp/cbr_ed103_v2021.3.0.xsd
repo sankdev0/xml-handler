@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="Windows-1251"?>
+<!--
+  ~ /* Copyright (c) 2021. San K (alias for A.K.).
+  ~ *
+  ~ * Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ * of this software and associated documentation files (the "Software"), to deal
+  ~ * in the Software without restriction, including without limitation the rights
+  ~ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ * copies of the Software, and to permit persons to whom the Software is
+  ~ * furnished to do so, subject to the following conditions:
+  ~ *
+  ~ * The above copyright notice and this permission notice shall be included in all
+  ~ * copies or substantial portions of the Software.
+  ~ *
+  ~ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  -->
+
 <!--Центральный Банк Российской Федерации.
 Унифицированные форматы электронных банковских сообщений.
 
@@ -13,15 +34,21 @@
 	<xs:annotation>
 		<xs:documentation>Прикладные части ЭС</xs:documentation>
 	</xs:annotation>
-	<xs:element name="ED101" type="ed:ED101"/>
-	<xs:complexType name="ED101">
+	<xs:element name="ED103" type="ed:ED103"/>
+	<xs:complexType name="ED103">
 		<xs:annotation>
-			<xs:documentation>Платежное поручение</xs:documentation>
-			<xs:documentation>Customer Credit Transfer</xs:documentation>
+			<xs:documentation>Платежное требование</xs:documentation>
+			<xs:documentation>Payment Request</xs:documentation>
 		</xs:annotation>
 		<xs:complexContent>
 			<xs:extension base="ed:EPDComplete">
 				<xs:sequence>
+					<xs:element name="IndirectParticipantInfo" type="ed:IndirectParticipantInfoType" minOccurs="0" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Информация о косвенном участнике-плательщике.</xs:documentation>
+							<xs:documentation>Information about Indirect Participant.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
 					<xs:element name="ParticipantBusinessScenario" type="lt:ParticipantBusinessScenarioType" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Идентификатор бизнес-сценария, определяемый участником.</xs:documentation>
@@ -40,12 +67,6 @@
 							<xs:documentation>Payment Purpose (Field 24).</xs:documentation>
 						</xs:annotation>
 					</xs:element>
-					<xs:element name="DepartmentalInfo" type="ed:DepartmentalInfo" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>Ведомственная информация (поля 101, 104-110).</xs:documentation>
-							<xs:documentation>Authorities Information (fields 101, 104-110).</xs:documentation>
-						</xs:annotation>
-					</xs:element>
 					<xs:element name="InitialED" type="ed:EDRefID" minOccurs="0">
 						<xs:annotation>
 							<xs:documentation>Идентификаторы исходного ЭПС (поля 203-205).</xs:documentation>
@@ -59,7 +80,7 @@
 						</xs:annotation>
 					</xs:element>
 				</xs:sequence>
-				<xs:attribute name="TransKind" type="lt:TwoDigitCodeType" use="required" fixed="01">
+				<xs:attribute name="TransKind" type="lt:TwoDigitCodeType" use="required" fixed="02">
 					<xs:annotation>
 						<xs:documentation>Вид операции (поле 18).</xs:documentation>
 						<xs:documentation>FTI Type (Field 18).</xs:documentation>
@@ -67,8 +88,32 @@
 				</xs:attribute>
 				<xs:attribute name="Priority" type="lt:PaytPriorityCodeType" use="required">
 					<xs:annotation>
-						<xs:documentation>Очередность платежа (поле 21).</xs:documentation>
-						<xs:documentation>FTI Sequence (Field 21).</xs:documentation>
+						<xs:documentation>Очередность платежа (поле 21)</xs:documentation>
+						<xs:documentation>FTI Sequence (Field 21)</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="PaytCondition" type="lt:OneDigitCodeType" use="required">
+					<xs:annotation>
+						<xs:documentation>Условие оплаты (поле 35).</xs:documentation>
+						<xs:documentation>Payment Condition (Field 35).</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="AcptTerm" type="lt:OneDayQuantityType">
+					<xs:annotation>
+						<xs:documentation>Срок для акцепта (поле 36). Количество дней для акцепта, установленного договором, в случае, если платеж осуществляется при условии акцепта платежного требования плательщиком.</xs:documentation>
+						<xs:documentation>Acceptance Period (Field 36). Number of days for acceptance provided in Agreement in case if payment is executed under condition of Direct Debit Instruction acceptance by Payer (Debtor).</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="DocDispatchDate" type="lt:DateType">
+					<xs:annotation>
+						<xs:documentation>Дата отсылки (вручения) плательщику предусмотренных договором документов (поле 37).</xs:documentation>
+						<xs:documentation>Date of sending (dispatch) of the documents provided in Agreement to Payer (Debtor) (Field 37).</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="ReceiptDateCollectBank" type="lt:DateType">
+					<xs:annotation>
+						<xs:documentation>Дата поступления документов в банк получателя (поле 48). Дата представления документов получателем средств в обслуживающий его банк.</xs:documentation>
+						<xs:documentation>Date of acception (receiving) of the documents to Beneficiary's Bank (Field 48). Date of FTI's submission of Benefitiary (Creditor) to his serving Bank.</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="ReceiptDate" type="lt:DateType">
@@ -89,6 +134,18 @@
 						<xs:documentation>Payer's Account Debit Date (Field 71).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
+				<xs:attribute name="MaturityDate" type="lt:DateType">
+					<xs:annotation>
+						<xs:documentation>Окончание срока акцепта (поле 72).</xs:documentation>
+						<xs:documentation>Date of Expiration of Acceptance Period (Field 72).</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="AcptSum" type="lt:KopeckAmountType">
+					<xs:annotation>
+						<xs:documentation>Сумма исходного расчетного документа, предъявленного к акцепту (поле 150).</xs:documentation>
+						<xs:documentation>Amount of Original FTI that need to be accepted.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
 				<xs:attribute name="SystemCode" type="lt:SystemCodeType" use="required">
 					<xs:annotation>
 						<xs:documentation>Признак системы обработки.</xs:documentation>
@@ -97,8 +154,8 @@
 				</xs:attribute>
 				<xs:attribute name="PaymentID" type="lt:PaymentIDType">
 					<xs:annotation>
-						<xs:documentation>Уникальный идентификатор платежа, присвоенный получателем средств (поле 22)</xs:documentation>
-						<xs:documentation>Unique Payment Identifier assigned by the (ultimate) creditor (Field 22) OR Unique credit ID</xs:documentation>
+						<xs:documentation>Уникальный идентификатор платежа, присвоенный получателем средств (поле 22).</xs:documentation>
+						<xs:documentation>Unique Payment Identifier assigned by the (ultimate) creditor (Field 22).</xs:documentation>
 					</xs:annotation>
 				</xs:attribute>
 				<xs:attribute name="ResField" type="lt:Max35TextType">

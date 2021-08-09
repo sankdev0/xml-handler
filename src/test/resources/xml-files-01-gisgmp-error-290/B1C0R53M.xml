@@ -1,0 +1,265 @@
+<!--
+  ~ /* Copyright (c) 2021. San K (alias for A.K.).
+  ~ *
+  ~ * Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ * of this software and associated documentation files (the "Software"), to deal
+  ~ * in the Software without restriction, including without limitation the rights
+  ~ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ * copies of the Software, and to permit persons to whom the Software is
+  ~ * furnished to do so, subject to the following conditions:
+  ~ *
+  ~ * The above copyright notice and this permission notice shall be included in all
+  ~ * copies or substantial portions of the Software.
+  ~ *
+  ~ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  -->
+
+<PacketEPD xmlns="urn:cbr-ru:ed:v2.0" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1267" EDQuantity="245" Sum="7076418836" SystemCode="02">
+	<ED101 ChargeOffDate="2021-07-20" CodePurpose="1" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1268" PaymentPrecedence="73" Priority="3" ReceiptDate="2021-07-20" Sum="1000000" 
+		SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="13222"/>
+		<Payer INN="5603033367" KPP="560301001" PersonalAcc="40702810300160001675">
+			<Name>ООО "Тест Общество"</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="7728168971" KPP="774432035" PersonalAcc="47422810204000000002">
+			<Name>АО "Альфа-Банк"</Name>
+			<Bank BIC="044525593" CorrespAcc="30101810200000000593"/>
+		</Payee>
+		<Purpose>Зарплата за июнь 21г сотрудникам ООО"Тест Общество"(резидненты) по реестру №13 согласно договора МОЕУ-090 от 05.10.2016 Сумма 10000-00 Без налога (НДС)</Purpose>
+	</ED101>
+	<ED101 ChargeOffDate="2021-07-20" CodePurpose="1" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1275" PaymentPrecedence="73" Priority="3" ReceiptDate="2021-07-20" Sum="1100000" 
+		SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="46022"/>
+		<Payer INN="5638021417" KPP="560901001" PersonalAcc="40702810100000006619">
+			<Name>ООО "СВС-ТЕСТ"</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="562902321117" PersonalAcc="40817810246008823322">
+			<Name>Сидорова Алена Тест</Name>
+			<Bank BIC="045354601" CorrespAcc="30101810600000000601"/>
+		</Payee>
+		<Purpose>Для зачисления отпускных Сидорова Алена Тест Сумма 11000-00 Без налога (НДС)</Purpose>
+	</ED101>
+	<ED101 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1277" OperationID="10453548140007021207202110000333" PaymentID="0" PaymentPrecedence="73" Priority="4" ReceiptDate="2021-07-20" Sum="100000" SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="27222"/>
+		<Payer INN="563803759421" KPP="0" PersonalAcc="40702810500000004959">
+			<Name>ООО "МК-ТЕСТ"</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="5611032615" KPP="561132005" PersonalAcc="03212643000000015300">
+			<Name>УФК по Оренбургской области (ОФК 40, Оренбургский РОСП УФССП России по Оренбургской области, л/с 05531846590)</Name>
+			<Bank BIC="015354008" CorrespAcc="40102810545370000045"/>
+		</Payee>
+		<Purpose>Взыскание долга с Иванова Взыскание Тест по Постановлению №52222/18/56011-СД от 03.10.2021г. НДС не облагается</Purpose>
+		<DepartmentalInfo CBC="0" DocDate="0" DocNo="0" DrawerStatus="19" OKATO="0" PaytReason="0" TaxPeriod="0"/>
+	</ED101>
+	<ED101 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1278" 
+		OperationID="10453548140007021207202110000351" PaymentID="32256045200204503007" PaymentPrecedence="73" Priority="4" ReceiptDate="2021-07-20" Sum="1100000" SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="64522"/>
+		<Payer INN="561102675561" KPP="0" PersonalAcc="40802810900000001166">
+			<Name>Петров Тест Игнатович (ИП) //460004, г.Оренбург, ул. Клинская, д.5//</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="5611032615" KPP="561132001" PersonalAcc="03212643000000015300">
+			<Name>УФК по Оренбургской области (ОФК 08, ОСП Промышленного района г.Оренбурга УФССП России по Оренбургской области л/с 05531846780)</Name>
+			<Bank BIC="015354008" CorrespAcc="40102810545370000045"/>
+		</Payee>
+		<Purpose>Перечисление денежных средств из зар.платы должника Тюрина Ивана Петровича по исп.листу № 56044/21/70711 от 19.01.2021. НДС не облагается</Purpose>
+		<DepartmentalInfo CBC="0" DocDate="0" DocNo="0" DrawerStatus="19" OKATO="0" PaytReason="0" TaxPeriod="0"/>
+	</ED101>
+	<ED101 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1279" OperationID="10453548140007021207202110000353" PaymentID="18810177210630617130" PaymentPrecedence="73" Priority="4" ReceiptDate="2021-07-20" Sum="90000" SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="361022"/>
+		<Payer INN="5642021798" KPP="564201001" PersonalAcc="40702810200000003113">
+			<Name>ООО "ТСТ НАТОР"</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="7707089101" KPP="770701001" PersonalAcc="03100643000000017300">
+			<Name>УФК по г.Москве (УГИБДД ГУ МВД РОССИИ по г.Москве л/с 04731440640)</Name>
+			<Bank BIC="004525988" CorrespAcc="40102810545370000003"/>
+		</Payee>
+		<Purpose>Штраф за нарушение ПДД по постановлению 18810177210630617130 от 30.06.2021</Purpose>
+		<DepartmentalInfo CBC="18811601121010001140" DocDate="0" DocNo="0" DrawerStatus="08" OKATO="45379000" PaytReason="0" TaxPeriod="0"/>
+	</ED101>
+	<ED104 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1282" OperationID="10453548140007021207202110000370" PaymentID="0" PaymentPrecedence="73" Priority="4" ReceiptDate="2021-07-20" ReceiptDateCollectBank="2021-07-20" Sum="1200000" SystemCode="02" TransKind="06">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="177922"/>
+		<Payer INN="5609047841" KPP="560901001" PersonalAcc="40702810700000003947">
+			<Name>ООО "МИР ТЕСТ"</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="5611032615" KPP="560932001" PersonalAcc="03212643000000015300">
+			<Name>УФК по Оренбургской области (ОФК 08, ОСП Дзержинского района г.Оренбурга УФССП России по Оренбургской области л/с 05531846800)</Name>
+			<Bank BIC="015354008" CorrespAcc="40102810545370000045"/>
+		</Payee>
+		<Purpose>Взыск. админ. штрафа по постан. № 56055/21/562110 от 10.07.2021 (№167777/21/56055-СД) СПИ Тутест Т.Т. Без НДС.</Purpose>
+		<DepartmentalInfo CBC="0" DocDate="0" DocNo="0" DrawerStatus="05" OKATO="53701000" PaytReason="0" TaxPeriod="0"/>
+	</ED104>
+	<ED101 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1284" OperationID="10453548140007021207202110000391" PaymentID="0" PaymentPrecedence="73" Priority="4" ReceiptDate="2021-07-20" Sum="1300000" SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="106322"/>
+		<Payer INN="564101093116" KPP="0" PersonalAcc="40702810200000000992">
+			<Name>ООО "ТЕСТ ОДИН"</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="5610229577" KPP="561001001" PersonalAcc="03100643000000015300">
+			<Name>ФКУ ИЦ-1 УФСИН РОССИИ ПО ОРЕНБУРГСКОЙ ОБЛАСТИ, л/с 04531F92190</Name>
+			<Bank BIC="015354008" CorrespAcc="40102810545370000045"/>
+		</Payee>
+		<Purpose>Взыскание из з/п Злакова Н.Н. по приговору суда б/н от 19.01.2021г. в пользу УФСИН России по Орен.обл. Сумма 13000-00 Без налога (НДС) НДС не облагается</Purpose>
+		<DepartmentalInfo CBC="32011302090017000130" DocDate="0" DocNo="0" DrawerStatus="19" OKATO="0" PaytReason="0" TaxPeriod="0"/>
+	</ED101>
+	<ED101 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1288" PaymentPrecedence="73" Priority="5" ReceiptDate="2021-07-20" Sum="1400000" SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="3522"/>
+		<Payer INN="564903749906" PersonalAcc="40802810400020001943">
+			<Name>Ваксин Тест Тестович (ИП)</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="564903749906" PersonalAcc="40817810146001021596">
+			<Name>Ваксин Тест Тестович</Name>
+			<Bank BIC="045354601" CorrespAcc="30101810600000000601"/>
+		</Payee>
+		<Purpose>Перевод собственных средств на карту 2202200689178111 Ваксин Тест Тестович. Без налога (НДС)</Purpose>
+	</ED101>
+	<ED101 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1315" PaymentPrecedence="73" Priority="5" ReceiptDate="2021-07-20" Sum="1500000" SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="98622"/>
+		<Payer INN="5609047541" KPP="560901001" PersonalAcc="40702810700000003337">
+			<Name>ООО "МИР ТЕСТ"</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="7445042181" KPP="997550001" PersonalAcc="40702810200000109828">
+			<Name>Общество с ограниченной ответственностью "Торговый дом ММК"</Name>
+			<Bank BIC="047516949" CorrespAcc="30101810700000000949"/>
+		</Payee>
+		<Purpose>Оплата за рулон по сч. № СМ-00001166 от 22.07.21г. В том числе НДС 20.00 % - 2500.00 р.</Purpose>
+	</ED101>
+	<ED101 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1289" PaymentPrecedence="73" Priority="5" ReceiptDate="2021-07-20" Sum="1600000" SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="3322"/>
+		<Payer INN="564903749906" PersonalAcc="40802810400020001943">
+			<Name>Ваксин Тест Тестович (ИП)</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="7017094429" KPP="701750001" PersonalAcc="40702810364010140170">
+			<Name>ООО "КДТ Тест"</Name>
+			<Bank BIC="046902606" CorrespAcc="30101810800000000606"/>
+		</Payee>
+		<Purpose>Оплата по счету б/н от 16.07.2021г. за кондитерские изделия. Без налога (НДС</Purpose>
+	</ED101>
+	<ED101 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1455" OperationID="10453548140007021207202110000369" PaymentID="0" PaymentPrecedence="73" Priority="5" ReceiptDate="2021-07-20" Sum="1700000" SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="98622"/>
+		<Payer INN="562201114706" KPP="0" PersonalAcc="40702810400000004936">
+			<Name>ООО "Тест Два"</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="5611032615" KPP="561101001" PersonalAcc="03212643000000015300">
+			<Name>УФК ПО ОРЕНБУРГСКОЙ ОБЛАСТИ (ОФК 08, ОСП Ленинского района г. Оренбурга УФССП России по Оренбургской области, л/с 05531846770)</Name>
+			<Bank BIC="015354008" CorrespAcc="40102810545370000045"/>
+		</Payee>
+		<Purpose>Задолженность по постановлению от 14.09.2020г. по исп. №11444/19/56055-ИП от 30.03.2020 г. с Кукарева Либридона Арибальдовича (удержано из з/п) Сумма 17000-00 Без налога (НДС) НДС не облагается</Purpose>
+		<DepartmentalInfo CBC="0" DocDate="0" DocNo="0" DrawerStatus="19" OKATO="53701000" PaytReason="0" TaxPeriod="0"/>
+	</ED101>
+	<ED101 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1296" PaymentPrecedence="73" Priority="5" ReceiptDate="2021-07-20" Sum="18000000" SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="132922"/>
+		<Payer INN="5609045981" KPP="561001001" PersonalAcc="40702810000000003287">
+			<Name>ООО "ТЕСТ-Авто"</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="561201954353" PersonalAcc="40817810946005526418">
+			<Name>Кристобаль Тест Ануфриевич</Name>
+			<Bank BIC="045354601" CorrespAcc="30101810600000000601"/>
+		</Payee>
+		<Purpose>Возврат денежных средств по Договор займа б/н от 18.05.2020г на карту № 4279460010055566 Критобаль Т.А. Сумма 180000-00 Без налога (НДС)</Purpose>
+	</ED101>
+	<ED101 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1299" OperationID="10453548140007021207202110000330" PaymentID="0" PaymentPrecedence="73" Priority="5" ReceiptDate="2021-07-20" Sum="1900000" SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="19822"/>
+		<Payer INN="560700199440" KPP="0" PersonalAcc="40802810900090003213">
+			<Name>Тестовая Наталья Тестовна (ИП) //462363 Оренбургская обл г.Тестобург ул.Клинская д211-кв117//</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="5607018181" KPP="560701001" PersonalAcc="03100643000000015300">
+			<Name>УФК по Оренбургской обл (МРИ ФНС России №8 по Оренбургской обл)</Name>
+			<Bank BIC="015354008" CorrespAcc="40102810545370000045"/>
+		</Payee>
+		<Purpose>Страховые взносы на обязательное пенсионное страхование работников июнь м-ц 2021 года. Рег. № 011-420-030212 НДС не облагается</Purpose>
+		<DepartmentalInfo CBC="18210202010061010160" DocDate="0" DocNo="0" DrawerStatus="09" OKATO="53720000" PaytReason="0" TaxPeriod="0"/>
+	</ED101>
+	<ED101 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1300" OperationID="10453548140007021207202110000326" PaymentID="0" PaymentPrecedence="73" Priority="5" ReceiptDate="2021-07-20" Sum="400000" SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="19722"/>
+		<Payer INN="560700199440" KPP="0" PersonalAcc="40802810900090003213">
+			<Name>Тестовая Наталья Тестовна (ИП)///462363 Оренбургская обл, г. Тестобург, ул. Клинская д. 211, кв 117///</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="5607018181" KPP="560701001" PersonalAcc="03100643000000015300">
+			<Name>УФК по Оренбургской области (Межрайонная ИФНС России №8 по Оренбургской области.)</Name>
+			<Bank BIC="015354008" CorrespAcc="40102810545370000045"/>
+		</Payee>
+		<Purpose>НДФЛ за июнь м-ц 2021 г.. НДС не облагается</Purpose>
+		<DepartmentalInfo CBC="18210102010011000110" DocDate="0" DocNo="0" DrawerStatus="02" OKATO="53720000" PaytReason="ТП" TaxPeriod="МС.06.2021"/>
+	</ED101>
+	<ED101 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1327" PaymentID="0" PaymentPrecedence="73" Priority="5" ReceiptDate="2021-07-20" Sum="900000" SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="8922"/>
+		<Payer INN="5607010554" KPP="560701001" PersonalAcc="40702810300090003144">
+			<Name>ООО "Тест Три"</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="5607019523" KPP="997550001" PersonalAcc="40702810329270000221">
+			<Name>АО "Местный Тест"</Name>
+			<Bank BIC="042202824" CorrespAcc="30101810200000000824"/>
+		</Payee>
+		<Purpose>///ЕЛС00АА000000;07.2021///Оплата по счету №210631/016/00 от 15 июня 2021г. за услуги по отпуску тепловой энергии за июнь 2021г. В т.ч. НДС (20%)-1500.00</Purpose>
+	</ED101>
+	<ED101 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1292" PaymentPrecedence="73" Priority="5" ReceiptDate="2021-07-20" Sum="2000000" SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="39022"/>
+		<Payer INN="5643008556" KPP="564301001" PersonalAcc="40702810200030003510">
+			<Name>ООО "Тестсервис"</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="5643008556" KPP="564301001" PersonalAcc="40702810646130100347">
+			<Name>ООО "Тестсервис"</Name>
+			<Bank BIC="045354601" CorrespAcc="30101810600000000601"/>
+		</Payee>
+		<Purpose>///НЕЖКУ///Пополнение расчетного счета Сумма 20000-00 Без налога (НДС)</Purpose>
+	</ED101>
+	<ED101 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1417" OperationID="10453548140007021207202110000356" PaymentID="0" PaymentPrecedence="73" Priority="5" ReceiptDate="2021-07-20" Sum="200000" SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="6022"/>
+		<Payer INN="5605022535" KPP="560901001" PersonalAcc="40702810200060004127">
+			<Name>ООО "Тесттех"</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="5609007386" KPP="560901001" PersonalAcc="03100643000000015300">
+			<Name>УФК по Оренбургской области (Инспекция Федеральной налоговой службы по Дзержинскому району г. Оренбурга</Name>
+			<Bank BIC="015354008" CorrespAcc="40102810545370000045"/>
+		</Payee>
+		<Purpose>Страховые взносы на обязательное социальное страхование по временной нетрудоспособности и материнству за июнь 2021 г. НДС не облагается</Purpose>
+		<DepartmentalInfo CBC="18210202090071010160" DocDate="0" DocNo="0" DrawerStatus="01" OKATO="53701000" PaytReason="ТП" TaxPeriod="КВ.02.2021"/>
+	</ED101>
+	<ED101 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1506" OperationID="10453548140007021207202110000141" PaymentID="32187656513181031931" PaymentPrecedence="73" Priority="5" ReceiptDate="2021-07-20" Sum="45000" SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="295222"/>
+		<Payer INN="0" KPP="0" PersonalAcc="40911810700030000367">
+			<Name>ПАО "НИКО-БАНК" //Горохоа Иван Тестович//462100,Оренбургская обл,Саракташский р-н,Саракташ п,ул Тренчевая,46//</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="5610084498" KPP="561001001" PersonalAcc="03100643000000015300">
+			<Name>УФК по Оренбургской области (Управление Федеральной службы государственной регистрации, кадастра и картографии по Оренбургской области)</Name>
+			<Bank BIC="015354008" CorrespAcc="40102810545370000045"/>
+		</Payee>
+		<Purpose>Перевод средств в оплату услуг, за предоставление свдение из ЕГРН НДС нет</Purpose>
+		<DepartmentalInfo CBC="32111301031016001130" DocDate="0" DocNo="01;5304134923" DrawerStatus="20" OKATO="53701000" PaytReason="0" TaxPeriod="0"/>
+	</ED101>
+	<ED101 ChargeOffDate="2021-07-20" EDAuthor="5354814000" EDDate="2021-07-20" EDNo="1507" OperationID="10453548140007021207202110000164" PaymentID="0" PaymentPrecedence="73" Priority="5" ReceiptDate="2021-07-20" Sum="55000" SystemCode="02" TransKind="01">
+		<AccDoc AccDocDate="2021-07-20" AccDocNo="295222"/>
+		<Payer INN="0" KPP="0" PersonalAcc="40911810500030000074">
+			<Name>ПАО "НИКО-БАНК" //Кленовый Николай Тестович//462115,Оренбургская обл,Саракташский р-н,Николаевка с,ул Круговая,11//</Name>
+			<Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+		</Payer>
+		<Payee INN="5610123323" KPP="561001001" PersonalAcc="03100643000000015300">
+			<Name>УФК по Оренбургской области (Управление Министерства юстиции Российской Федерации по Оренбургской области)</Name>
+			<Bank BIC="015354008" CorrespAcc="40102810545370000045"/>
+		</Payee>
+		<Purpose>Перевод средств в оплату гос.пошлины, за повторное свидетельство НДС нет///;ИП01;5307511711</Purpose>
+		<DepartmentalInfo CBC="31810805000010002110" DocDate="0" DocNo="01;5307511711" DrawerStatus="20" OKATO="53701000" PaytReason="0" TaxPeriod="0"/>
+	</ED101>
+</PacketEPD>

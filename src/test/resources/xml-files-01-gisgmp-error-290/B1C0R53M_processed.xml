@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+  ~ /* Copyright (c) 2021. San K (alias for A.K.).
+  ~ *
+  ~ * Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ * of this software and associated documentation files (the "Software"), to deal
+  ~ * in the Software without restriction, including without limitation the rights
+  ~ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ * copies of the Software, and to permit persons to whom the Software is
+  ~ * furnished to do so, subject to the following conditions:
+  ~ *
+  ~ * The above copyright notice and this permission notice shall be included in all
+  ~ * copies or substantial portions of the Software.
+  ~ *
+  ~ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  -->
+
+<PacketEPD xmlns="urn:cbr-ru:ed:v2.0" EDQuantity="245" Sum="7076418836" SystemCode="02" EDNo="1267" EDDate="2021-07-20" EDAuthor="5354814000">
+    <ED101 TransKind="01" Priority="4" ReceiptDate="2021-07-20" ChargeOffDate="2021-07-20" SystemCode="02" PaymentID="0" OperationID="10453548140007021207202110000333" Sum="100000" PaymentPrecedence="73" EDNo="1277" EDDate="2021-07-20" EDAuthor="5354814000">
+        <AccDoc AccDocNo="27222" AccDocDate="2021-07-20"/>
+        <Payer PersonalAcc="40702810500000004959" INN="563803759421" KPP="0">
+            <Name>ООО "МК-ТЕСТ"</Name>
+            <Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+        </Payer>
+        <Payee PersonalAcc="03212643000000015300" INN="5611032615" KPP="561132005">
+            <Name>УФК по Оренбургской области (ОФК 40, Оренбургский РОСП УФССП России по Оренбургской области, л/с 05531846590)</Name>
+            <Bank BIC="015354008" CorrespAcc="40102810545370000045"/>
+        </Payee>
+        <Purpose>Взыскание долга с Иванова Взыскание Тест по Постановлению №52222/18/56011-СД от 03.10.2021г. НДС не облагается///;ИП21;563803759421</Purpose>
+        <DepartmentalInfo DrawerStatus="19" CBC="0" OKATO="0" PaytReason="0" TaxPeriod="0" DocNo="0" DocDate="0"/>
+    </ED101>
+    <ED101 TransKind="01" Priority="4" ReceiptDate="2021-07-20" ChargeOffDate="2021-07-20" SystemCode="02" PaymentID="0" OperationID="10453548140007021207202110000391" Sum="1300000" PaymentPrecedence="73" EDNo="1284" EDDate="2021-07-20" EDAuthor="5354814000">
+        <AccDoc AccDocNo="106322" AccDocDate="2021-07-20"/>
+        <Payer PersonalAcc="40702810200000000992" INN="564101093116" KPP="0">
+            <Name>ООО "ТЕСТ ОДИН"</Name>
+            <Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+        </Payer>
+        <Payee PersonalAcc="03100643000000015300" INN="5610229577" KPP="561001001">
+            <Name>ФКУ ИЦ-1 УФСИН РОССИИ ПО ОРЕНБУРГСКОЙ ОБЛАСТИ, л/с 04531F92190</Name>
+            <Bank BIC="015354008" CorrespAcc="40102810545370000045"/>
+        </Payee>
+        <Purpose>Взыскание из з/п Злакова Н.Н. по приговору суда б/н от 19.01.2021г. в пользу УФСИН России по Орен.обл. Сумма 13000-00 Без налога (НДС) НДС не облагается///;ИП21;564101093116</Purpose>
+        <DepartmentalInfo DrawerStatus="19" CBC="32011302090017000130" OKATO="0" PaytReason="0" TaxPeriod="0" DocNo="0" DocDate="0"/>
+    </ED101>
+    <ED101 TransKind="01" Priority="5" ReceiptDate="2021-07-20" ChargeOffDate="2021-07-20" SystemCode="02" PaymentID="0" OperationID="10453548140007021207202110000369" Sum="1700000" PaymentPrecedence="73" EDNo="1455" EDDate="2021-07-20" EDAuthor="5354814000">
+        <AccDoc AccDocNo="98622" AccDocDate="2021-07-20"/>
+        <Payer PersonalAcc="40702810400000004936" INN="562201114706" KPP="0">
+            <Name>ООО "Тест Два"</Name>
+            <Bank BIC="045354814" CorrespAcc="30101810400000000814"/>
+        </Payer>
+        <Payee PersonalAcc="03212643000000015300" INN="5611032615" KPP="561101001">
+            <Name>УФК ПО ОРЕНБУРГСКОЙ ОБЛАСТИ (ОФК 08, ОСП Ленинского района г. Оренбурга УФССП России по Оренбургской области, л/с 05531846770)</Name>
+            <Bank BIC="015354008" CorrespAcc="40102810545370000045"/>
+        </Payee>
+        <Purpose>Задолженность по постановлению от 14.09.2020г. по исп. №11444/19/56055-ИП от 30.03.2020 г. с Кукарева Либридона Арибальдовича (удержано из з/п) Сумма 17000-00 Без налога (НДС) НДС не облагается///;ИП21;562201114706</Purpose>
+        <DepartmentalInfo DrawerStatus="19" CBC="0" OKATO="53701000" PaytReason="0" TaxPeriod="0" DocNo="0" DocDate="0"/>
+    </ED101>
+</PacketEPD>
